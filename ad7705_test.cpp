@@ -54,7 +54,7 @@ static void writeReset(int fd)
   
   ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
   if (ret < 1)
-    pabort("can't send spi message");
+    pabort("writeReset: can't send spi message");
 }
 
 static void writeReg(int fd, uint8_t v)
@@ -73,7 +73,7 @@ static void writeReg(int fd, uint8_t v)
 
   ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
   if (ret < 1)
-    pabort("can't send spi message");
+    pabort("writeReg: can't send spi message");
 }
 
 static uint8_t readReg(int fd)
@@ -92,7 +92,7 @@ static uint8_t readReg(int fd)
 
 	ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
 	if (ret < 1)
-	  pabort("can't send spi message");
+	  pabort("readReg: can't send spi message");
 	  
 	return rx1[0];
 }
@@ -112,7 +112,7 @@ static int readData(int fd)
 
 	ret = ioctl(fd, SPI_IOC_MESSAGE(1), &tr);
 	if (ret < 1)
-	  pabort("can't send spi message");
+	  pabort("readData: can't send spi message");
 	  
 	return (rx1[0]<<8)|(rx1[1]);
 }
