@@ -60,9 +60,9 @@ static void writeReset(int fd)
 static void writeReg(int fd, uint8_t v)
 {
   int ret;
-  uint8_t tx1[1];
+  uint8_t tx1[5];
   tx1[0] = v;
-  uint8_t rx1[1] = {0};
+  uint8_t rx1[5] = {0};
   struct spi_ioc_transfer tr;
   tr.tx_buf = (unsigned long)tx1;
   tr.rx_buf = (unsigned long)rx1;
