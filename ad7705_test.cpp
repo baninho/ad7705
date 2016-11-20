@@ -100,8 +100,8 @@ static uint8_t readReg(int fd)
 static int readData(int fd)
 {
 	int ret;
-	uint8_t tx1[2] = {0,0};
-	uint8_t rx1[2] = {0,0};
+	uint8_t tx1[5] = {0,0,0,0,0};
+	uint8_t rx1[5] = {0,0,0,0,0};
 	struct spi_ioc_transfer tr;
 	tr.tx_buf = (unsigned long)tx1;
 	tr.rx_buf = (unsigned long)rx1;
